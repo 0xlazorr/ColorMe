@@ -60,20 +60,20 @@ sections.forEach(s => scrollObserver.observe(s));
 /* ── Collection Data (16 Photos) ── */
 const collection = {
   photo: [
-    { url: "./media/IMG_0304.JPG.jpeg" },
-    { url: "./media/IMG_2071.JPG.jpeg" },
+    { url: "./media/img_0304.jpg" },
+    { url: "./media/img_2071.jpg" },
     { url: "./media/grad.jpg" },
     { url: "./media/brand.jpg" },
-    { url: "./media/IMG_5842.JPEG" },
-    { url: "./media/IMG_5840.JPG.jpeg" },
-    { url: "./media/IMG_5841.JPEG" },
-    { url: "./media/IMG_5596.JPG.jpeg" },
-    { url: "./media/IMG_5843.JPEG" },
-    { url: "./media/IMG_5844.JPEG" },
-    { url: "./media/IMG_5845.JPEG" },
+    { url: "./media/img_5842.jpg" },
+    { url: "./media/img_5840.jpg" },
+    { url: "./media/img_5841.jpg" },
+    { url: "./media/img_5596.jpg" },
+    { url: "./media/img_5843.jpg" },
+    { url: "./media/img_5844.jpg" },
+    { url: "./media/img_5845.jpg" },
     { url: "./media/couple.jpg" },
-    { url: "./media/IMG_6986.JPG.jpeg" },
-    { url: "./media/IMG_3356.JPG.jpeg" },
+    { url: "./media/img_6986.jpg" },
+    { url: "./media/img_3356.jpg" },
     { url: "./media/coolest.jpg" },
     { url: "./media/event.jpg" }
   ]
