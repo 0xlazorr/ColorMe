@@ -130,6 +130,26 @@ if (loadMoreBtn) {
   });
 }
 
+/* ── Gallery & Lightbox FSM ── */
+const GalleryState = Object.freeze({
+  GRID_VIEW: 'GRID_VIEW',
+  LIGHTBOX_OPEN: 'LIGHTBOX_OPEN',
+  TRANSITIONING: 'TRANSITIONING',
+});
+
+class GalleryFSM {
+  constructor() {
+    this.state = GalleryState.GRID_VIEW;
+  }
+
+  transitionTo(nextState) {
+    if (this.state === nextState) return;
+    this.state = nextState;
+  }
+}
+
+const galleryFSM = new GalleryFSM();
+
 /* ── Lightbox ── */
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
@@ -141,6 +161,7 @@ const updateLightbox = () => {
 };
 
 const openLightbox = (i) => {
+  galleryFSM.transitionTo(GalleryState.LIGHTBOX_OPEN);
   lightboxIndex = i;
   updateLightbox();
   lightbox.classList.add('active');
@@ -148,13 +169,16 @@ const openLightbox = (i) => {
 };
 
 const closeLightbox = () => {
+  galleryFSM.transitionTo(GalleryState.GRID_VIEW);
   lightbox.classList.remove('active');
   document.body.style.overflow = '';
 };
 
 const changeImage = (dir) => {
+  galleryFSM.transitionTo(GalleryState.TRANSITIONING);
   lightboxIndex = (lightboxIndex + dir + currentImages.length) % currentImages.length;
   updateLightbox();
+  galleryFSM.transitionTo(GalleryState.LIGHTBOX_OPEN);
 };
 
 document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
